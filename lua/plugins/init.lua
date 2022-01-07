@@ -27,7 +27,7 @@ return packer.startup(function()
   }
 
   use {
-    "famiu/feline.nvim",
+    "feline-nvim/feline.nvim", tag = "v0.3.3",
     config = function()
       require("plugins.configs.statusline")
     end,
