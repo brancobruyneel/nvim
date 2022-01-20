@@ -33,11 +33,6 @@ local function attach(client, bufnr)
   buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
   buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
   buf_set_keymap("n", "<space>q", "<cmd>lua vim.diagnostic.set_loclist()<CR>", opts)
-  -- old diagnostic mappings
-  -- buf_set_keymap("n", "<leader>ds", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", opts)
-  -- buf_set_keymap("n", "<leader>dp", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
-  -- buf_set_keymap("n", "<leader>dn", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
-  --
   buf_set_keymap("n", "<space>fm", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
   buf_set_keymap("v", "<space>ca", "<cmd>lua vim.lsp.buf.range_code_action()<CR>", opts)
 end
@@ -64,31 +59,10 @@ local function lspSymbol(name, icon)
   vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
 end
 
--- lspSymbol("Error", "")
--- lspSymbol("Info", "")
--- lspSymbol("Hint", "")
--- lspSymbol("Warn", "")
-
--- lspSymbol("Error", "")
--- lspSymbol("Info", "𥉉")
--- lspSymbol("Hint", "")
--- lspSymbol("Warn", "")
-
 lspSymbol("Error", "")
 lspSymbol("Info", "")
 lspSymbol("Hint", "")
 lspSymbol("Warn", "")
-
--- lspSymbol("Error", "•")
--- lspSymbol("Info", "•")
--- lspSymbol("Hint", "•")
--- lspSymbol("Warn", "•")
-
--- lspSymbol("Error", "")
--- lspSymbol("Info", "")
--- lspSymbol("Hint", "")
--- lspSymbol("Warn", "")
-
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
   underline = false,
@@ -97,12 +71,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
   update_in_insert = true,
   severity_sort = true,
 
-})
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-  border = "single",
-})
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-  border = "single",
 })
 
 -- suppress error messages from lang servers
