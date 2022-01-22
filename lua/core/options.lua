@@ -4,7 +4,7 @@ local g = vim.g
 opt.title = true
 opt.clipboard = ""
 opt.cmdheight = 1
-opt.cul = true 
+opt.cul = true
 
 -- Indentline
 opt.expandtab = true
