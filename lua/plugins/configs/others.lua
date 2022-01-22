@@ -1,5 +1,17 @@
 local M = {}
 
+M.autopairs = function()
+   local present1, autopairs = pcall(require, "nvim-autopairs")
+   local present2, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
+
+   if present1 and present2 then
+      autopairs.setup({ fast_wrap = {} })
+
+      local cmp = require "cmp"
+      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+   end
+end
+
 M.blankline = function()
   require("indent_blankline").setup {
     indentLine_enabled = 1,
@@ -19,7 +31,6 @@ M.blankline = function()
   }
 end
 
-
 M.colorizer = function()
   local present, colorizer = pcall(require, "colorizer")
   if present then
@@ -37,6 +48,33 @@ M.colorizer = function()
       mode = "background", -- Set the display mode.
     })
   end
+end
+
+M.luasnip = function()
+   local present, luasnip = pcall(require, "luasnip")
+   if present then
+      luasnip.config.set_config({
+        history = true,
+        updateevents = "TextChanged, TextChangedI",
+      })
+      require("luasnip/loaders/from_vscode").load()
+   end
+end
+
+M.gitsigns = function()
+   local present, gitsigns = pcall(require, "gitsigns")
+   if present then
+      local default = {
+         signs = {
+            add = { hl = "DiffAdd", text = "│", numhl = "GitSignsAddNr" },
+            change = { hl = "DiffChange", text = "│", numhl = "GitSignsChangeNr" },
+            delete = { hl = "DiffDelete", text = "", numhl = "GitSignsDeleteNr" },
+            topdelete = { hl = "DiffDelete", text = "‾", numhl = "GitSignsDeleteNr" },
+            changedelete = { hl = "DiffChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
+         },
+      }
+      gitsigns.setup(default)
+   end
 end
 
 return M

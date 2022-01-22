@@ -23,7 +23,7 @@ local sources = {
 
 local M = {}
 
-M.setup = function(on_attach)
+M.setup = function()
    null_ls.setup {
       debug = true,
       sources = sources,

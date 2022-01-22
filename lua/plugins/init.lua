@@ -86,25 +86,19 @@ return packer.startup(function()
     end,
   }
 
+  use "hrsh7th/cmp-nvim-lua"
+  use "hrsh7th/cmp-nvim-lsp"
+  use "hrsh7th/cmp-buffer"
+  use "hrsh7th/cmp-path"
+  use "saadparwaiz1/cmp_luasnip"
+
+  use "rafamadriz/friendly-snippets"
   use {
     "L3MON4D3/LuaSnip",
     config = function()
-      require("plugins.configs.luasnip")
+      require("plugins.configs.others").luasnip()
     end
   }
-
-  use "rafamadriz/friendly-snippets"
-
-  use "hrsh7th/cmp-nvim-lua"
-
-  use "hrsh7th/cmp-nvim-lsp"
-
-  use "hrsh7th/cmp-buffer"
-
-  use "hrsh7th/cmp-path"
-
-  use "saadparwaiz1/cmp_luasnip"
-
 
   use {
     "numToStr/Comment.nvim",
@@ -126,18 +120,6 @@ return packer.startup(function()
 
   use {
     "nvim-telescope/telescope.nvim",
-    requires = {
-      {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        run = "make",
-      },
-      {
-        "nvim-telescope/telescope-media-files.nvim",
-        setup = function()
-          require("core.mappings").telescope_media()
-        end,
-      },
-    },
     config = function()
       require("plugins.configs.telescope")
     end,
@@ -145,5 +127,12 @@ return packer.startup(function()
       require("core.mappings").telescope()
     end,
   }
+
+   use {
+      "windwp/nvim-autopairs",
+      config = function()
+        require("plugins.configs.others").autopairs()
+      end
+   }
 
 end)
