@@ -23,6 +23,8 @@ M.general = function()
 
  -- close  buffer
   map("n", "<leader>x", ":lua require('core.utils').close_buffer() <CR>")
+
+  map("n", "gx", '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>')
 end
 
 M.packer = function()

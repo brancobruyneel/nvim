@@ -86,27 +86,30 @@ return packer.startup(function()
     end,
   }
 
+  use {
+    "L3MON4D3/LuaSnip",
+    config = function()
+      require("plugins.configs.luasnip")
+    end
+  }
+
+  use "rafamadriz/friendly-snippets"
+
   use "hrsh7th/cmp-nvim-lua"
 
-  use {
-    "hrsh7th/cmp-nvim-lsp",
-    after = "cmp-nvim-lua",
-  }
+  use "hrsh7th/cmp-nvim-lsp"
+
+  use "hrsh7th/cmp-buffer"
+
+  use "hrsh7th/cmp-path"
+
+  use "saadparwaiz1/cmp_luasnip"
+
 
   use {
-    "hrsh7th/cmp-buffer",
-    after = "cmp-nvim-lsp",
-  }
-
-  use {
-    "hrsh7th/cmp-path",
-    after = "cmp-buffer",
-  }
-
-  use {
-    'numToStr/Comment.nvim',
+    "numToStr/Comment.nvim",
     config = function()
-      require('Comment').setup()
+      require("Comment").setup()
     end,
   }
 
