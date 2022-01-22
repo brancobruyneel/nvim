@@ -6,7 +6,19 @@ end
 ts_config.setup {
   ensure_installed = {
     "lua",
+    "vim",
+    "regex",
+    "bash",
+    "html",
+    "css",
+    "javascript",
+    "typescript",
+    "rust",
+    "c",
+    "c_sharp",
+    "python",
   },
+
   highlight = {
     enable = true,
     use_languagetree = true,
