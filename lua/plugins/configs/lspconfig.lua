@@ -46,6 +46,15 @@ local enhance_server_opts = {
       },
     }
   end,
+
+  ["tailwindcss"] = function (opts)
+    opts.filetypes = { "html", "css", "javascript", "typescript", "typescriptreact", "rust"}
+    opts.init_options = {
+      userLanguages = {
+        rust = "html",
+      }
+    }
+  end
 }
 
 lsp_installer.on_server_ready(function(server)
