@@ -47,14 +47,28 @@ local enhance_server_opts = {
     }
   end,
 
-  ["tailwindcss"] = function (opts)
+  ["tailwindcss"] = function(opts)
     opts.filetypes = { "html", "css", "javascript", "typescript", "typescriptreact", "rust"}
     opts.init_options = {
       userLanguages = {
         rust = "html",
       }
     }
-  end
+    end,
+
+  ["rust_analyzer"] = function(opts)
+    opts.settings = {
+      ["rust-analyzer"] = {
+        checkOnSave = {
+          allFeatures = true,
+          overrideCommand = {
+            'cargo', 'clippy', '--workspace', '--message-format=json',
+            '--all-targets', '--all-features'
+          }
+        }
+      }
+    }
+  end,
 }
 
 lsp_installer.on_server_ready(function(server)
