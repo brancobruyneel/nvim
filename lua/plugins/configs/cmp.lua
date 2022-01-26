@@ -6,6 +6,7 @@ if not present1 and not present2 then
 end
 
 vim.opt.completeopt = "menuone,noselect"
+vim.cmd[[set pumheight=20]]
 
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
