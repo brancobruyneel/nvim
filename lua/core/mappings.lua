@@ -7,10 +7,6 @@ local cmd = vim.cmd
 local M = {}
 
 M.general = function()
-  -- move lines
-  map("v", "J", ":m '>+1<CR>gv=gv")
-  map("v", "K", ":m '<-2<CR>gv=gv")
-
   -- clipboard
   map("n", "<leader>y", '"+y')
   map("v", "<leader>y", '"+y')
@@ -49,7 +45,6 @@ M.lspconfig = function()
   map("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>")
   map("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
   map("n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
-  map("n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
   map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
   map("n", "ge", "<cmd>lua vim.diagnostic.open_float()<CR>")
   map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
@@ -72,7 +67,7 @@ M.telescope = function()
   map("n", "<leader>fh", ":Telescope help_tags <CR>")
   map("n", "<leader>fw", ":Telescope live_grep <CR>")
   map("n", "<leader>fo", ":Telescope oldfiles <CR>")
-  map("n", "<leader>th", ":Telescope themes <CR>")
+  map("n", "<leader>ca", ":Telescope lsp_code_actions <CR>")
 end
 
 M.telescope_media = function()

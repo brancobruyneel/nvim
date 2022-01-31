@@ -50,6 +50,11 @@ telescope.setup {
     -- Developer configurations: Not meant for general override
     buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
   },
+  pickers = {
+    lsp_code_actions = {
+      theme = "cursor",
+    },
+  },
   extensions = {
     fzf = {
       fuzzy = true, -- false will only do exact matching
