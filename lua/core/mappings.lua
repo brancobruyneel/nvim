@@ -7,6 +7,10 @@ local cmd = vim.cmd
 local M = {}
 
 M.general = function()
+  -- unbind
+  map("n", "H", "")
+  map("n", "L", "")
+
   -- clipboard
   map("n", "<leader>y", '"+y')
   map("v", "<leader>y", '"+y')
