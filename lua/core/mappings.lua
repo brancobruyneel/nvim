@@ -21,7 +21,7 @@ M.general = function()
   -- use ESC to turn off search highlighting
   map("n", "<Esc>", ":noh <CR>")
 
- -- close  buffer
+  -- close  buffer
   map("n", "<leader>x", ":lua require('core.utils').close_buffer() <CR>")
 
   map("n", "gx", '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>')
@@ -35,7 +35,6 @@ M.packer = function()
   cmd "silent! command PackerStatus lua require 'plugins' require('packer').status()"
   cmd "silent! command PackerSync lua require 'plugins' require('packer').sync()"
   cmd "silent! command PackerUpdate lua require 'plugins' require('packer').update()"
-
 end
 
 M.lspconfig = function()
@@ -64,7 +63,7 @@ end
 
 M.telescope = function()
   map("n", "<leader>fb", ":Telescope buffers <CR>")
-  map("n", "<C-p>",      ":Telescope find_files <CR>")
+  map("n", "<C-p>", ":Telescope find_files <CR>")
   map("n", "<leader>fd", ":Telescope diagnostics <CR>")
   map("n", "<leader>cm", ":Telescope git_commits <CR>")
   map("n", "<leader>fa", ":Telescope find_files hidden=true <CR>")

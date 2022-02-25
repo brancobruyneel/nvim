@@ -25,5 +25,5 @@ ts_config.setup {
   },
   indent = {
     enable = true,
-  }
+  },
 }

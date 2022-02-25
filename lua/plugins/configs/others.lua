@@ -1,15 +1,15 @@
 local M = {}
 
 M.autopairs = function()
-   local present1, autopairs = pcall(require, "nvim-autopairs")
-   local present2, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
+  local present1, autopairs = pcall(require, "nvim-autopairs")
+  local present2, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
 
-   if present1 and present2 then
-      autopairs.setup({ fast_wrap = {} })
+  if present1 and present2 then
+    autopairs.setup { fast_wrap = {} }
 
-      local cmp = require "cmp"
-      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-   end
+    local cmp = require "cmp"
+    cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+  end
 end
 
 M.blankline = function()
@@ -51,30 +51,30 @@ M.colorizer = function()
 end
 
 M.luasnip = function()
-   local present, luasnip = pcall(require, "luasnip")
-   if present then
-      luasnip.config.set_config({
-        history = true,
-        updateevents = "TextChanged, TextChangedI",
-      })
-      require("luasnip/loaders/from_vscode").load()
-   end
+  local present, luasnip = pcall(require, "luasnip")
+  if present then
+    luasnip.config.set_config {
+      history = true,
+      updateevents = "TextChanged, TextChangedI",
+    }
+    require("luasnip/loaders/from_vscode").load()
+  end
 end
 
 M.gitsigns = function()
-   local present, gitsigns = pcall(require, "gitsigns")
-   if present then
-      local default = {
-         signs = {
-            add = { hl = "DiffAdd", text = "│", numhl = "GitSignsAddNr" },
-            change = { hl = "DiffChange", text = "│", numhl = "GitSignsChangeNr" },
-            delete = { hl = "DiffDelete", text = "", numhl = "GitSignsDeleteNr" },
-            topdelete = { hl = "DiffDelete", text = "‾", numhl = "GitSignsDeleteNr" },
-            changedelete = { hl = "DiffChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
-         },
-      }
-      gitsigns.setup(default)
-   end
+  local present, gitsigns = pcall(require, "gitsigns")
+  if present then
+    local default = {
+      signs = {
+        add = { hl = "DiffAdd", text = "│", numhl = "GitSignsAddNr" },
+        change = { hl = "DiffChange", text = "│", numhl = "GitSignsChangeNr" },
+        delete = { hl = "DiffDelete", text = "", numhl = "GitSignsDeleteNr" },
+        topdelete = { hl = "DiffDelete", text = "‾", numhl = "GitSignsDeleteNr" },
+        changedelete = { hl = "DiffChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
+      },
+    }
+    gitsigns.setup(default)
+  end
 end
 
 return M

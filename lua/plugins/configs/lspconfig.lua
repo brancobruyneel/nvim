@@ -28,33 +28,31 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
   signs = true,
   update_in_insert = true,
   severity_sort = true,
-
 })
 
 local lsp_installer = require "nvim-lsp-installer"
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 local enhance_server_opts = {
   ["sumneko_lua"] = function(opts)
     opts.settings = {
       Lua = {
         diagnostics = {
-          globals = { 'vim' }
+          globals = { "vim" },
         },
       },
     }
   end,
 
   ["tailwindcss"] = function(opts)
-    opts.filetypes = { "html", "css", "javascript", "typescript", "typescriptreact", "rust"}
+    opts.filetypes = { "html", "css", "javascript", "typescript", "typescriptreact", "rust" }
     opts.init_options = {
       userLanguages = {
         rust = "html",
-      }
+      },
     }
-    end,
+  end,
 
   ["rust_analyzer"] = function(opts)
     opts.settings = {
@@ -62,11 +60,15 @@ local enhance_server_opts = {
         checkOnSave = {
           allFeatures = true,
           overrideCommand = {
-            'cargo', 'clippy', '--workspace', '--message-format=json',
-            '--all-targets', '--all-features'
-          }
-        }
-      }
+            "cargo",
+            "clippy",
+            "--workspace",
+            "--message-format=json",
+            "--all-targets",
+            "--all-features",
+          },
+        },
+      },
     }
   end,
 }
