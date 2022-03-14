@@ -7,17 +7,28 @@ end
 local b = null_ls.builtins
 
 local sources = {
-  b.formatting.prettierd,
-
-  -- lua
-  b.formatting.stylua,
-
-  -- Shell
-  b.formatting.shfmt,
+  -- diagnostics
+  b.diagnostics.eslint_d,
+  b.diagnostics.luacheck,
   b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
 
-  -- Rust
-  b.formatting.rustfmt.with { extra_args = { "--edition=2021" } },
+  -- formatting
+  -- b.formatting.eslint_d,
+  b.formatting.prettierd.with {
+    filetypes = {
+      "html",
+      "json",
+      "javascript",
+      "typescript",
+      "javascriptreact",
+      "typescriptreact",
+      "scss",
+      "css",
+    },
+  },
+  b.formatting.rustfmt,
+  b.formatting.stylua,
+  b.formatting.shfmt,
 }
 
 local M = {}
@@ -26,16 +37,6 @@ M.setup = function()
   null_ls.setup {
     debug = true,
     sources = sources,
-    on_attach = function(client)
-      if client.resolved_capabilities.document_formatting then
-        vim.cmd [[
-            augroup LspFormatting
-              autocmd! * <buffer>
-              autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
-            augroup END
-        ]]
-      end
-    end,
   }
 end
 

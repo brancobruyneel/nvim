@@ -22,13 +22,13 @@ lspSymbol("Info", "")
 lspSymbol("Hint", "")
 lspSymbol("Warn", "")
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+vim.diagnostic.config {
   underline = false,
   virtual_text = false,
   signs = true,
   update_in_insert = true,
   severity_sort = true,
-})
+}
 
 local lsp_installer = require "nvim-lsp-installer"
 local capabilities = vim.lsp.protocol.make_client_capabilities()
