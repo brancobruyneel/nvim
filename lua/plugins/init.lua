@@ -9,7 +9,16 @@ local use = packer.use
 return packer.startup(function()
   use "nvim-lua/plenary.nvim"
 
-  use "iamcco/markdown-preview.nvim"
+  use {
+    "iamcco/markdown-preview.nvim",
+    config = function()
+      vim.g.mkdp_auto_close = 0
+    end,
+  }
+
+  use {
+    "dermusikman/sonicpi.vim",
+  }
 
   use {
     "wbthomason/packer.nvim",
