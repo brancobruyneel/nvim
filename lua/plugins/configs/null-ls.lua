@@ -12,6 +12,9 @@ local sources = {
   b.diagnostics.luacheck,
   b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
 
+  -- code actions
+  b.code_actions.eslint_d,
+
   -- formatting
   -- b.formatting.eslint_d,
   b.formatting.prettierd.with {
@@ -37,6 +40,16 @@ M.setup = function()
   null_ls.setup {
     debug = true,
     sources = sources,
+    on_attach = function(client)
+      if client.resolved_capabilities.document_formatting then
+        vim.cmd [[
+            augroup LspFormatting
+              autocmd! * <buffer>
+              autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+            augroup END
+        ]]
+      end
+    end,
   }
 end
 
