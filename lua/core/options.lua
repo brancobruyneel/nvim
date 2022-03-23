@@ -6,6 +6,8 @@ opt.clipboard = ""
 opt.cmdheight = 1
 opt.cul = true
 
+opt.laststatus = 3
+
 -- Indentline
 opt.expandtab = true
 opt.shiftwidth = 2
