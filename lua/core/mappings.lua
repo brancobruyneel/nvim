@@ -25,6 +25,9 @@ M.general = function()
   map("n", "<leader>x", ":lua require('core.utils').close_buffer() <CR>")
 
   map("n", "gx", '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>')
+
+  -- redo last macro
+  map("n", ",", "@@")
 end
 
 M.packer = function()
