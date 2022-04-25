@@ -36,7 +36,6 @@ g.nvim_tree_icons = {
 
 nvimtree.setup {
   disable_netrw = true,
-  hide_root_folder = true,
   hijack_cursor = true,
   hijack_netrw = true,
   update_cwd = true,
@@ -45,6 +44,7 @@ nvimtree.setup {
     update_cwd = false,
   },
   view = {
+    hide_root_folder = true,
     side = "left",
     width = 25,
     preserve_window_proportions = true,
