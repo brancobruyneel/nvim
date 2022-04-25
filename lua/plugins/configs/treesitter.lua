@@ -3,6 +3,24 @@ if not present then
   return
 end
 
+local parsers = require("nvim-treesitter.parsers").get_parser_configs()
+
+parsers.gotmpl = {
+  install_info = {
+    url = "https://github.com/ngalaiko/tree-sitter-go-template",
+    files = { "src/parser.c" },
+  },
+  filetype = "gotmpl",
+  used_by = {
+    "gohtmltmpl",
+    "gotexttmpl",
+    "gotmpl",
+    "goyamltmpl",
+    -- "yaml",
+    "ctmpl",
+  },
+}
+
 ts_config.setup {
   ensure_installed = {
     "lua",
@@ -25,5 +43,12 @@ ts_config.setup {
   },
   indent = {
     enable = true,
+  },
+  context_commentstring = {
+    enable = true,
+    config = {
+      yaml = "# %s",
+      gotmpl = "{{- /* %s */}}",
+    },
   },
 }
