@@ -53,4 +53,8 @@ nvimtree.setup {
     custom = { ".git" },
     exclude = { ".gitignore" },
   },
+  trash = {
+    cmd = "trash",
+    require_confirm = true,
+  },
 }
