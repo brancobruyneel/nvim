@@ -21,9 +21,6 @@ M.general = function()
   -- use ESC to turn off search highlighting
   map("n", "<Esc>", ":noh <CR>")
 
-  -- close  buffer
-  map("n", "<leader>x", ":lua require('core.utils').close_buffer() <CR>")
-
   map("n", "gx", '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>')
 
   -- redo last macro
@@ -78,6 +75,12 @@ end
 
 M.telescope_media = function()
   map("n", "<leader>fp", ":Telescope media_files <CR>")
+end
+
+M.bufferline = function()
+  map("n", "<Tab>", "<cmd> :BufferLineCycleNext <CR>")
+  map("n", "<S-Tab>", "<cmd> :BufferLineCyclePrev <CR>")
+  map("n", "<leader>x", ":lua require('core.utils').close_buffer() <CR>")
 end
 
 return M

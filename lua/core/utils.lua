@@ -2,6 +2,14 @@ local M = {}
 
 local cmd = vim.cmd
 
+M.close_buffer = function(force)
+  if force or not vim.bo.buflisted or vim.bo.buftype == "nofile" then
+    cmd ":bd!"
+  else
+    cmd "bd"
+  end
+end
+
 M.map = function(mode, keys, cmd, opt)
   local options = { noremap = true, silent = true }
   if opt then

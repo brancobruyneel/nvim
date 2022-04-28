@@ -10,6 +10,17 @@ return packer.startup(function()
   use "nvim-lua/plenary.nvim"
 
   use {
+    "akinsho/bufferline.nvim",
+    after = "nvim-web-devicons",
+    setup = function()
+      require("core.mappings").bufferline()
+    end,
+    config = function()
+      require "plugins.configs.bufferline"
+    end,
+  }
+
+  use {
     "iamcco/markdown-preview.nvim",
     config = function()
       vim.g.mkdp_auto_close = 0
