@@ -5,7 +5,7 @@ end
 
 local colors = require("colors").get()
 
-local options = {
+bufferline.setup {
   options = {
     offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
     buffer_close_icon = "",
@@ -135,5 +135,3 @@ local options = {
     },
   },
 }
-
-bufferline.setup(options)

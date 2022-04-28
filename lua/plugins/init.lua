@@ -7,16 +7,42 @@ end
 local use = packer.use
 
 return packer.startup(function()
+  use {
+    "wbthomason/packer.nvim",
+    event = "VimEnter",
+  }
+
   use "nvim-lua/plenary.nvim"
+
+  use {
+    "joshdick/onedark.vim",
+    after = "packer.nvim",
+    config = function()
+      require("colors").init "onedark"
+    end,
+  }
+
+  use {
+    "kyazdani42/nvim-web-devicons",
+    after = "onedark.vim",
+  }
 
   use {
     "akinsho/bufferline.nvim",
     after = "nvim-web-devicons",
+    config = function()
+      require "plugins.configs.bufferline"
+    end,
     setup = function()
       require("core.mappings").bufferline()
     end,
+  }
+
+  use {
+    "feline-nvim/feline.nvim",
+    after = "nvim-web-devicons",
     config = function()
-      require "plugins.configs.bufferline"
+      require "plugins.configs.statusline"
     end,
   }
 
@@ -31,29 +57,7 @@ return packer.startup(function()
     "dermusikman/sonicpi.vim",
   }
 
-  use {
-    "wbthomason/packer.nvim",
-    event = "VimEnter",
-  }
-
-  use "kyazdani42/nvim-web-devicons"
-
   use "tpope/vim-fugitive"
-
-  use {
-    "joshdick/onedark.vim",
-    after = "packer.nvim",
-    config = function()
-      require("colors").init "onedark"
-    end,
-  }
-
-  use {
-    "feline-nvim/feline.nvim",
-    config = function()
-      require "plugins.configs.statusline"
-    end,
-  }
 
   use {
     "lukas-reineke/indent-blankline.nvim",
