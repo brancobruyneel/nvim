@@ -9,7 +9,7 @@ local b = null_ls.builtins
 local sources = {
   -- diagnostics
   b.diagnostics.eslint_d,
-  b.diagnostics.luacheck,
+  b.diagnostics.luacheck.with { extra_args = { "--global vim" } },
   b.diagnostics.shellcheck.with { diagnostics_format = "#{m} [#{c}]" },
 
   -- code actions
@@ -27,10 +27,12 @@ local sources = {
       "typescriptreact",
       "scss",
       "css",
+      "markdown",
     },
   },
   b.formatting.rustfmt,
   b.formatting.stylua,
+
   b.formatting.shfmt,
 }
 
