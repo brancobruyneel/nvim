@@ -50,4 +50,9 @@ telescope.setup {
     qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
     buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
   },
+  extensions = {
+    ["ui-select"] = require("telescope.themes").get_cursor(),
+  },
 }
+
+telescope.load_extension "ui-select"
