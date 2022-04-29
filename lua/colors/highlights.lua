@@ -113,6 +113,8 @@ fg("LspDiagnosticsVirtualTextHint", purple)
 fg("IndentBlanklineChar", line)
 
 -- Git signs
+vim.cmd "hi clear DiffChange"
+
 fg_bg("DiffAdd", green, "NONE")
 fg_bg("DiffChange", grey_fg, "NONE")
 fg_bg("DiffChangeDelete", red, "NONE")
