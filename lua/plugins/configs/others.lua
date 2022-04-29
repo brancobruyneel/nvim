@@ -33,8 +33,16 @@ end
 
 M.colorizer = function()
   local present, colorizer = pcall(require, "colorizer")
-  if present then
-    colorizer.setup({ "*" }, {
+
+  if not present then
+    return
+  end
+
+  local options = {
+    filetypes = {
+      "*",
+    },
+    user_default_options = {
       RGB = true, -- #RGB hex codes
       RRGGBB = true, -- #RRGGBB hex codes
       names = false, -- "Name" codes like Blue
@@ -46,8 +54,10 @@ M.colorizer = function()
 
       -- Available modes: foreground, background
       mode = "background", -- Set the display mode.
-    })
-  end
+    },
+  }
+
+  colorizer.setup(options["filetypes"], options["user_default_options"])
 end
 
 M.luasnip = function()
@@ -58,22 +68,6 @@ M.luasnip = function()
       updateevents = "TextChanged, TextChangedI",
     }
     require("luasnip/loaders/from_vscode").load()
-  end
-end
-
-M.gitsigns = function()
-  local present, gitsigns = pcall(require, "gitsigns")
-  if present then
-    local default = {
-      signs = {
-        add = { hl = "DiffAdd", text = "│", numhl = "GitSignsAddNr" },
-        change = { hl = "DiffChange", text = "│", numhl = "GitSignsChangeNr" },
-        delete = { hl = "DiffDelete", text = "", numhl = "GitSignsDeleteNr" },
-        topdelete = { hl = "DiffDelete", text = "‾", numhl = "GitSignsDeleteNr" },
-        changedelete = { hl = "DiffChangeDelete", text = "~", numhl = "GitSignsChangeNr" },
-      },
-    }
-    gitsigns.setup(default)
   end
 end
 

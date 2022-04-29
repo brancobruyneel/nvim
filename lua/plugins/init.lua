@@ -75,7 +75,8 @@ return packer.startup(function()
 
   use {
     "nvim-treesitter/nvim-treesitter",
-    event = "BufRead",
+    event = { "BufRead", "BufNewFile" },
+    run = ":TSUpdate",
     config = function()
       require "plugins.configs.treesitter"
     end,
@@ -143,6 +144,8 @@ return packer.startup(function()
       require("core.mappings").nvimtree()
     end,
   }
+
+  use "nvim-telescope/telescope-ui-select.nvim"
 
   use {
     "nvim-telescope/telescope.nvim",

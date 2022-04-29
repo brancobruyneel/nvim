@@ -11,6 +11,12 @@ M.general = function()
   map("n", "H", "")
   map("n", "L", "")
 
+  -- navigation between windows
+  map("n", "<C-h>", "<C-w>h")
+  map("n", "<C-l>", "<C-w>l")
+  map("n", "<C-k>", "<C-w>k")
+  map("n", "<C-j>", "<C-w>j")
+
   -- clipboard
   map("n", "<leader>y", '"+y')
   map("v", "<leader>y", '"+y')
@@ -22,9 +28,6 @@ M.general = function()
   map("n", "<Esc>", ":noh <CR>")
 
   map("n", "gx", '<Cmd>call jobstart(["xdg-open", expand("<cfile>")], {"detach": v:true})<CR>')
-
-  -- redo last macro
-  map("n", ",", "@@")
 end
 
 M.packer = function()
@@ -48,6 +51,7 @@ M.lspconfig = function()
   map("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>")
   map("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
   map("n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
+  map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action() <CR>")
   map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
   map("n", "ge", "<cmd>lua vim.diagnostic.open_float()<CR>")
   map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
@@ -70,7 +74,6 @@ M.telescope = function()
   map("n", "<leader>fh", ":Telescope help_tags <CR>")
   map("n", "<leader>fw", ":Telescope live_grep <CR>")
   map("n", "<leader>fo", ":Telescope oldfiles <CR>")
-  map("n", "<leader>ca", ":Telescope lsp_code_actions <CR>")
 end
 
 M.telescope_media = function()

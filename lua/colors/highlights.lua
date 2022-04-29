@@ -28,50 +28,70 @@ local bg = require("core.utils").bg
 bg("Normal", "NONE")
 bg("Folded", "NONE")
 fg("Folded", "NONE")
-fg("Comment", grey)
 
--- blankline
+-- Comments
+fg("Comment", grey_fg)
 
-fg("IndentBlanklineChar", line)
+-- Disable cursor line
+cmd "hi clear CursorLine"
+-- Line number
+fg("cursorlinenr", white)
 
--- misc --
-fg("LineNr", grey)
-fg("Comment", grey)
-fg("NvimInternalError", red)
-fg("VertSplit", line)
+-- same it bg, so it doesn't appear
 fg("EndOfBuffer", black)
+
+-- For floating windows
+fg("FloatBorder", line)
+-- bg("normalFloat", darker_black)
 
 -- Pmenu
 bg("Pmenu", one_bg)
 bg("PmenuSbar", one_bg2)
 bg("PmenuSel", green)
 bg("PmenuThumb", nord_blue)
+fg("CmpItemAbbr", white)
+fg("CmpItemAbbrMatch", white)
+fg("CmpItemKind", white)
+fg("CmpItemMenu", white)
 
--- inactive statuslines as thin splitlines
-cmd("hi! StatusLineNC gui=underline guifg=" .. line)
+-- misc
 
--- line n.o
-cmd "hi clear CursorLine"
-fg("cursorlinenr", white)
+-- inactive statuslines as thin lines
+fg("StatusLineNC", one_bg3 .. " gui=underline")
+
+fg("LineNr", grey)
+fg("NvimInternalError", red)
+fg("VertSplit", line)
 
 -- NvimTree
+fg("NvimTreeEmptyFolderName", blue)
+fg("NvimTreeEndOfBuffer", darker_black)
 fg("NvimTreeFolderIcon", blue)
 fg("NvimTreeFolderName", blue)
-fg("NvimTreeOpenedFolderName", blue)
-fg("NvimTreeEmptyFolderName", blue)
+fg("NvimTreeGitDirty", red)
 fg("NvimTreeIndentMarker", one_bg2)
--- fg("NvimTreeVertSplit", darker_black)
--- bg("NvimTreeVertSplit", darker_black)
-
--- fg("NvimTreeRootFolder", darker_black)
 -- bg("NvimTreeNormal", darker_black)
+-- bg("NvimTreeNormalNC", darker_black)
+-- fg("NvimTreeOpenedFolderName", blue)
+-- fg("NvimTreeRootFolder", red .. " gui=underline") -- enable underline for root folder in nvim tree
 -- fg_bg("NvimTreeStatuslineNc", darker_black, darker_black)
+-- fg_bg("NvimTreeVertSplit", darker_black, darker_black)
+-- fg_bg("NvimTreeWindowPicker", red, black2)
 
--- telescope
-fg("TelescopeBorder", grey)
-fg("TelescopePromptBorder", grey)
-fg("TelescopeResultsBorder", grey)
-fg("TelescopePreviewBorder", grey)
+-- Telescope
+fg_bg("TelescopeBorder", darker_black, darker_black)
+fg_bg("TelescopePromptBorder", black2, black2)
+
+fg_bg("TelescopePromptNormal", white, black2)
+fg_bg("TelescopePromptPrefix", red, black2)
+
+bg("TelescopeNormal", darker_black)
+
+fg_bg("TelescopePreviewTitle", black, green)
+fg_bg("TelescopePromptTitle", black, red)
+fg_bg("TelescopeResultsTitle", darker_black, darker_black)
+
+bg("TelescopeSelection", black2)
 
 -- LspDiagnostics ---
 
@@ -88,6 +108,9 @@ fg("LspDiagnosticsVirtualTextInformation", green)
 -- hint
 fg("LspDiagnosticsSignHint", purple)
 fg("LspDiagnosticsVirtualTextHint", purple)
+
+-- blankline
+fg("IndentBlanklineChar", line)
 
 -- Git signs
 fg_bg("DiffAdd", green, "NONE")
