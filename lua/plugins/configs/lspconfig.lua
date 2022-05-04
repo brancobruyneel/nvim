@@ -31,6 +31,7 @@ vim.diagnostic.config {
 }
 
 local lsp_installer = require "nvim-lsp-installer"
+
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
@@ -41,6 +42,14 @@ local enhance_server_opts = {
         diagnostics = {
           globals = { "vim" },
         },
+      },
+      workspace = {
+        library = {
+          [vim.fn.expand "$VIMRUNTIME/lua"] = true,
+          [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
+        },
+        maxPreload = 100000,
+        preloadFileSize = 10000,
       },
     }
   end,
