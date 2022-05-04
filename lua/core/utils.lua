@@ -3,59 +3,42 @@ local M = {}
 local cmd = vim.cmd
 
 M.close_buffer = function(force)
-  if force or not vim.bo.buflisted or vim.bo.buftype == "nofile" then
-    cmd ":bd!"
-  else
-    cmd "bd"
+  if vim.bo.buftype == "terminal" then
+    vim.api.nvim_win_hide(0)
+    return
   end
+
+  local fileExists = vim.fn.filereadable(vim.fn.expand "%p")
+  local modified = vim.api.nvim_buf_get_option(vim.fn.bufnr(), "modified")
+
+  -- if file doesnt exist & its modified
+  if fileExists == 0 and modified then
+    print "no file name? add it now!"
+    return
+  end
+
+  force = force or not vim.bo.buflisted or vim.bo.buftype == "nofile"
+
+  -- if not force, change to prev buf and then close current
+  local close_cmd = force and ":bd!" or ":bp | bd" .. vim.fn.bufnr()
+  vim.cmd(close_cmd)
 end
 
-M.map = function(mode, keys, cmd, opt)
-  local options = { noremap = true, silent = true }
+M.map = function(mode, keys, command, opt)
+  local options = { silent = true }
+
   if opt then
     options = vim.tbl_extend("force", options, opt)
   end
 
-  -- all valid modes allowed for mappings
-  -- :h map-modes
-  local valid_modes = {
-    [""] = true,
-    ["n"] = true,
-    ["v"] = true,
-    ["s"] = true,
-    ["x"] = true,
-    ["o"] = true,
-    ["!"] = true,
-    ["i"] = true,
-    ["l"] = true,
-    ["c"] = true,
-    ["t"] = true,
-  }
-
-  -- helper function for M.map
-  -- can gives multiple modes and keys
-  local function map_wrapper(mode, lhs, rhs, options)
-    if type(lhs) == "table" then
-      for _, key in ipairs(lhs) do
-        map_wrapper(mode, key, rhs, options)
-      end
-    else
-      if type(mode) == "table" then
-        for _, m in ipairs(mode) do
-          map_wrapper(m, lhs, rhs, options)
-        end
-      else
-        if valid_modes[mode] and lhs and rhs then
-          vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-        else
-          mode, lhs, rhs = mode or "", lhs or "", rhs or ""
-          print("Cannot set mapping [ mode = '" .. mode .. "' | key = '" .. lhs .. "' | cmd = '" .. rhs .. "' ]")
-        end
-      end
+  if type(keys) == "table" then
+    for _, keymap in ipairs(keys) do
+      M.map(mode, keymap, command, opt)
     end
+    return
   end
 
-  map_wrapper(mode, keys, cmd, options)
+  vim.keymap.set(mode, keys, command, opt)
 end
 
 -- load plugin after entering vim ui
