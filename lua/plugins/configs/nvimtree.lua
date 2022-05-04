@@ -35,6 +35,7 @@ g.nvim_tree_icons = {
 }
 
 nvimtree.setup {
+  auto_reload_on_write = true,
   disable_netrw = true,
   hijack_cursor = true,
   hijack_netrw = true,
@@ -48,6 +49,13 @@ nvimtree.setup {
     side = "left",
     width = 25,
     preserve_window_proportions = true,
+  },
+  actions = {
+    change_dir = {
+      enable = true,
+      global = true,
+      restrict_above_cwd = false,
+    },
   },
   filters = {
     custom = { ".git" },
