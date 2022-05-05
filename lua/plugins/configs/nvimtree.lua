@@ -59,7 +59,7 @@ nvimtree.setup {
   },
   filters = {
     custom = { ".git" },
-    exclude = { ".gitignore", ".gitlab" },
+    exclude = { ".gitignore", ".gitlab", ".github" },
   },
   trash = {
     cmd = "trash",
