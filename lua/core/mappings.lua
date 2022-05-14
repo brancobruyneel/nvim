@@ -59,6 +59,7 @@ M.lspconfig = function()
   map("n", "<space>q", "<cmd>lua vim.diagnostic.set_loclist()<CR>")
   map("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>")
 end
+-- test
 
 M.nvimtree = function()
   map("n", "<leader>ne", ":NvimTreeToggle <CR>")
