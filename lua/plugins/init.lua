@@ -58,6 +58,7 @@ return packer.startup(function()
   }
 
   use "tpope/vim-fugitive"
+  use "tpope/vim-dispatch"
 
   use {
     "lukas-reineke/indent-blankline.nvim",

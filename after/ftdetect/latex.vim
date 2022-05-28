@@ -1,2 +1,2 @@
-autocmd BufWritePost *.tex silent! execute "!pdflatex --shell-escape main.tex >/dev/null 2>&1" | redraw!
+autocmd BufWritePost *.tex silent! execute ":Dispatch makeglossaries main && pdflatex --shell-escape main.tex" | redraw!
 set textwidth=100
