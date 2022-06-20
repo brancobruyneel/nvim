@@ -15,6 +15,16 @@ return packer.startup(function()
   use "nvim-lua/plenary.nvim"
 
   use {
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    setup = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+      vim.g.mkdp_auto_close = 0
+    end,
+    ft = { "markdown" },
+  }
+
+  use {
     "joshdick/onedark.vim",
     after = "packer.nvim",
     config = function()
@@ -43,13 +53,6 @@ return packer.startup(function()
     after = "nvim-web-devicons",
     config = function()
       require "plugins.configs.statusline"
-    end,
-  }
-
-  use {
-    "iamcco/markdown-preview.nvim",
-    config = function()
-      vim.g.mkdp_auto_close = 0
     end,
   }
 
