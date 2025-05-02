@@ -23,6 +23,27 @@
       luaPath = "${./.}";
 
       defaultPackageName = "nvim";
+      extra_pkg_config = {
+        allowUnfree = true;
+        doCheck = false;
+      };
+
+      module_args = {
+        moduleNamespace = [ defaultPackageName ];
+        inherit
+          nixpkgs
+          defaultPackageName
+          dependencyOverlays
+          luaPath
+          categoryDefinitions
+          packageDefinitions
+          ;
+      };
+      nixosModule = utils.mkNixosModules module_args;
+      homeModule = utils.mkHomeModules module_args;
+      overlays = utils.makeOverlaysWithMultiDefault luaPath {
+        inherit nixpkgs dependencyOverlays extra_pkg_config;
+      } categoryDefinitions packageDefinitions defaultPackageName;
 
       dependencyOverlays = [ (utils.standardPluginOverlay inputs) ];
     in
@@ -47,5 +68,15 @@
 
         packages = utils.mkAllWithDefault defaultPackage;
       }
-    );
+    )
+    // {
+      inherit
+        utils
+        overlays
+        nixosModule
+        homeModule
+        ;
+      nixosModules.default = nixosModule;
+      homeModules.default = homeModule;
+    };
 }
