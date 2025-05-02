@@ -1,5 +1,0 @@
-require "ui.nvchad-ui"
-require "ui.base46"
-require "ui.nvim-web-devicons"
-require "ui.nvim-tree"
-require "ui.telescope"

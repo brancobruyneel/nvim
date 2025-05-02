@@ -40,9 +40,10 @@ require("lze").load {
     -- Miscellaneous
     { "<leader>uC", tf "colorscheme", desc = "Search Colorschemes" },
   },
-  after = function(_)
+  before = function(_)
     dofile(vim.g.base46_cache .. "telescope")
-
+  end,
+  after = function(_)
     require("telescope").setup {
       defaults = {
         prompt_prefix = "   ",

@@ -1,0 +1,5 @@
+require "branco.ui.nvchad-ui"
+require "branco.ui.base46"
+require "branco.ui.nvim-web-devicons"
+require "branco.ui.nvim-tree"
+require "branco.ui.telescope"

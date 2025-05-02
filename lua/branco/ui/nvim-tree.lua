@@ -1,11 +1,12 @@
-require("lze").load({
+require("lze").load {
   "nvim-tree",
   cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-  after = function() 
+  before = function()
     dofile(vim.g.base46_cache .. "nvimtree")
-
+  end,
+  after = function()
     require("nvim-tree").setup {
-      filters = { 
+      filters = {
         dotfiles = false,
         custom = { "^.git$" },
       },
@@ -63,5 +64,5 @@ require("lze").load({
         },
       },
     }
-  end
-})
+  end,
+}

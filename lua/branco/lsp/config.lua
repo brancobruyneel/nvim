@@ -1,4 +1,4 @@
-require("lze").load({
+require("lze").load {
   {
     "nvim-lspconfig",
     on_require = "lspconfig",
@@ -13,35 +13,12 @@ require("lze").load({
       vim.lsp.enable(plugin.name)
     end,
     before = function()
+      dofile(vim.g.base46_cache .. "lsp")
+
       vim.lsp.config("*", {
         capabilities = vim.lsp.protocol.make_client_capabilities(),
       })
     end,
   },
-  -- LSP server definitions
-  {
-    "lua_ls",
-    lsp = {
-      filetypes = { "lua" },
-      settings = {
-        Lua = {
-          runtime = { version = "LuaJIT" },
-          formatters = { ignoreComments = true },
-          telemetry = { enabled = false },
-        },
-      },
-    },
-  },
-  {
-    "nixd",
-    lsp = {
-      filetypes = { "nix" },
-    },
-  },
-  {
-    "gopls",
-    lsp = {
-      filetypes = { "go", "gomod", "gowork", "gotmpl" },
-    },
-  },
-})
+  { import = "branco.lsp.servers" },
+}

@@ -1,5 +1,0 @@
-require("lsp.completions")
-require("lsp.formatters")
-require("lsp.languages")
-require("lsp.treesitter")
-require("lsp.linters")

@@ -27,6 +27,7 @@
   optionalPlugins = {
     general = with pkgs.vimPlugins; [
       vim-fugitive
+      gitsigns-nvim
       blink-cmp
       mini-surround
       plenary-nvim
