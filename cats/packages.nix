@@ -1,10 +1,11 @@
 { nixpkgs }:
 {
   nvim =
-    { name, ... }:
+    { ... }:
     {
       settings = {
-        configDirName = name;
+        configDirName = "nvim";
+        wrapRC = false;
       };
       categories = {
         debug = true;
