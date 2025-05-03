@@ -1,6 +1,6 @@
 # Personal Neovim configuration
 
-[example](./media/example.jpg)
+![example](./media/example.jpg)
 
 Try it out:
 
