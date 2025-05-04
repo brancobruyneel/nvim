@@ -34,6 +34,11 @@
       telescope-nvim
       telescope-fzf-native-nvim
     ];
+    testing = with pkgs.vimPlugins; [
+      neotest
+      neotest-go
+      nvim-nio
+    ];
   };
 
   # Runtime plugin dependencies

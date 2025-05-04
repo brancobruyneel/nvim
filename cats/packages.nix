@@ -4,8 +4,7 @@
     { ... }:
     {
       settings = {
-        configDirName = "nvim";
-        wrapRC = false;
+        wrapRc = false;
       };
       categories = {
         debug = true;
@@ -13,6 +12,7 @@
         lang = true;
         theme = true;
         tools = true;
+        testing = true;
       };
       extra = {
         nixdExtras = { inherit nixpkgs; };
