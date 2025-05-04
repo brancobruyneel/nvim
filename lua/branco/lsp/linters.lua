@@ -1,31 +1,24 @@
-require("lze").load({
+require("lze").load {
   "nvim-lint",
-  event = "BufWritePre",
-  keys = {
-    {
-      "<leader>lf",
-      function()
-        require("conform").format({
-          lsp_fallback = true,
-          async = false,
-          timeout_ms = 1000,
-        })
-      end,
-      desc = "Format Document",
-      mode = { "n", "v" },
-    },
-  },
+  event = "BufReadPost",
   after = function()
-    require("conform").setup({
-      formatters_by_ft = {
-        lua = { "stylua" },
-        go = { "gofumpt", "goimports" },
-        nix = { "nixfmt-rfc-style" },
-      },
-      format_on_save = {
-        lsp_fallback = true,
-        timeout_ms = 500,
-      },
+    local lint = require "lint"
+
+    lint.linters_by_ft = {
+      go = { "golangcilint" },
+    }
+
+    local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
+
+    vim.api.nvim_create_autocmd({ "BufWritePost", "InsertLeave" }, {
+      group = lint_augroup,
+      callback = function()
+        lint.try_lint()
+      end,
     })
+
+    vim.keymap.set("n", "<leader>l", function()
+      lint.try_lint()
+    end, { desc = "Trigger linting for current file" })
   end,
-})
+}
