@@ -10,6 +10,7 @@ require "branco.options"
 require "branco.ui"
 require "branco.lsp"
 require "branco.misc"
+require "branco.ai"
 
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
