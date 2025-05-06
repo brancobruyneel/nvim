@@ -6,7 +6,6 @@ end
 
 require("lze").load {
   "telescope.nvim",
-  dependencies = { "plenary.nvim", "telescope-fzf-native-nvim" },
   keys = {
     { "<C-p>", tf "find_files", desc = "Search Files" },
     { "<leader>fp", tf "buffers", desc = "Search Buffers" },
