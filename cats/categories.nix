@@ -36,7 +36,7 @@
     ];
     testing = with pkgs.vimPlugins; [
       neotest
-      neotest-go
+      neotest-golang
       nvim-nio
     ];
   };

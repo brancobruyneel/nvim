@@ -1,11 +1,7 @@
 require("lze").load {
   "neotest",
-  dependencies = {
-    "nvim-nio",
-    "plenary.nvim",
-    "neotest-go",
-  },
   cmd = "Neotest",
+  lazy = false,
   keys = {
     {
       "<leader>tf",
@@ -81,7 +77,7 @@ require("lze").load {
   after = function(_)
     require("neotest").setup {
       adapters = {
-        require "neotest-go" {
+        require "neotest-golang" {
           dap_go_enabled = true,
           testify_enabled = true,
         },
