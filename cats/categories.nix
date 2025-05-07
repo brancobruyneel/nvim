@@ -26,11 +26,16 @@
   # Use `:NixCats pawsible` to see the `packadd` expects
   optionalPlugins = {
     general = with pkgs.vimPlugins; [
+      blink-cmp
+      plenary-nvim
+      # git
       vim-fugitive
       gitsigns-nvim
-      blink-cmp
+
       mini-surround
-      plenary-nvim
+
+      render-markdown-nvim
+
       telescope-nvim
       telescope-fzf-native-nvim
     ];
