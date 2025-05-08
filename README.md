@@ -22,3 +22,4 @@ nix run 'github:brancobruyneel/nvim'
 
 - [ ] grapple.nvim
 - [ ] avante.nvim
+- [ ] nvim-coverage
