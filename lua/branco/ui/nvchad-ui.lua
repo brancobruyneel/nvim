@@ -1,7 +1,7 @@
-require("lze").load({
+require("lze").load {
   "nvchad-ui",
   lazy = false,
-  after = function() 
+  after = function()
     require "nvchad"
-  end
-})
+  end,
+}

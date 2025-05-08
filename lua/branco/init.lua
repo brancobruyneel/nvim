@@ -1,4 +1,4 @@
-vim.g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
+vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46_cache/"
 vim.g.mapleader = " "
 
 require("lze").register_handlers(require("lzextras").lsp)
@@ -12,5 +12,6 @@ require "branco.lsp"
 require "branco.misc"
 require "branco.ai"
 
-dofile(vim.g.base46_cache .. "defaults")
-dofile(vim.g.base46_cache .. "statusline")
+for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
+  dofile(vim.g.base46_cache .. v)
+end

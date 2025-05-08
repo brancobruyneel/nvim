@@ -12,10 +12,19 @@ M.ui = {
 
 M.base46 = {
   integrations = {
-    "neogit",
-    "notify",
+    "dap",
+    "blink",
+    "lsp",
+    "syntax",
+    "semantic_tokens",
+    "nvimtree",
+    "telescope",
+    "git",
+    "avante",
+    "render-markdown",
   },
   theme = "onedark",
+  theme_toggle = { "onedark", "one_light" },
 }
 
 return M
