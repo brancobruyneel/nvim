@@ -1,16 +1,10 @@
 require("lze").load {
   {
     "vim-fugitive",
-    before = function(_)
-      dofile(vim.g.base46_cache .. "git")
-    end,
     cmd = "G",
   },
   {
     "gitsigns.nvim",
-    before = function(_)
-      dofile(vim.g.base46_cache .. "git")
-    end,
     after = function(_)
       require("gitsigns").setup {
         on_attach = function(bufnr)

@@ -32,8 +32,6 @@ require("lze").load {
       vim.lsp.enable(plugin.name)
     end,
     before = function()
-      dofile(vim.g.base46_cache .. "lsp")
-
       vim.lsp.config("*", {
         capabilities = vim.lsp.protocol.make_client_capabilities(),
       })

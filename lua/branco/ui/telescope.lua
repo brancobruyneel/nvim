@@ -26,9 +26,6 @@ require("lze").load {
     { "<leader>gl", tf "git_commits", desc = "Search Git Commits" },
     { "<leader>gf", tf "git_bcommits", desc = "Search Git Buffer Commits" },
   },
-  before = function(_)
-    dofile(vim.g.base46_cache .. "telescope")
-  end,
   after = function(_)
     require("telescope").setup {
       defaults = {

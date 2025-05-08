@@ -1,9 +1,6 @@
 require("lze").load {
   "nvim-tree",
   cmd = { "NvimTreeToggle", "NvimTreeFocus" },
-  before = function()
-    dofile(vim.g.base46_cache .. "nvimtree")
-  end,
   after = function()
     require("nvim-tree").setup {
       filters = {
