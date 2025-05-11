@@ -1,4 +1,4 @@
-# Personal Neovim configuration
+# ❄️ Neovim config
 
 ![example](./media/example.jpg)
 
