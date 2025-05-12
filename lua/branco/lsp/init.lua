@@ -1,6 +1,6 @@
-require "branco.lsp.completions"
-require "branco.lsp.formatters"
-require "branco.lsp.config"
-require "branco.lsp.treesitter"
-require "branco.lsp.linters"
-require "branco.lsp.debugger"
+return {
+  { import = "branco.lsp.formatters" },
+  { import = "branco.lsp.config" },
+  { import = "branco.lsp.treesitter" },
+  { import = "branco.lsp.linters" },
+}

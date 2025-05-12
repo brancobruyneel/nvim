@@ -1,4 +1,4 @@
-require("lze").load {
+return {
   {
     "neotest",
     cmd = "Neotest",
@@ -76,11 +76,9 @@ require("lze").load {
     },
     after = function(_)
       require("neotest").setup {
+        level = vim.log.levels.DEBUG,
         adapters = {
-          require "neotest-golang" {
-            dap_go_enabled = true,
-            testify_enabled = true,
-          },
+          require "neotest-golang" {},
         },
       }
     end,

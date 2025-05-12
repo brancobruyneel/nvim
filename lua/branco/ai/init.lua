@@ -1,1 +1,1 @@
-require "branco.ai.avante"
+return {}

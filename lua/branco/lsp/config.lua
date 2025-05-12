@@ -14,7 +14,7 @@ vim.diagnostic.config {
   severity_sort = true,
 }
 
-require("lze").load {
+return {
   {
     "nvim-lspconfig",
     on_require = "lspconfig",

@@ -1,4 +1,4 @@
-require("lze").load {
+return {
   "render-markdown.nvim",
   after = function()
     require("render-markdown").setup {

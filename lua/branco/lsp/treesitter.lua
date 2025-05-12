@@ -1,7 +1,7 @@
-require("lze").load {
+return {
   {
     "nvim-treesitter",
-    event = { "BufReadPost", "BufNewFile" },
+    event = "DeferredUIEnter",
     after = function(_)
       require("nvim-treesitter.configs").setup {
         highlight = {

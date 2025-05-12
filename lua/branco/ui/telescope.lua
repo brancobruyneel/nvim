@@ -4,7 +4,7 @@ local function tf(cmd, opts)
   end
 end
 
-require("lze").load {
+return {
   "telescope.nvim",
   keys = {
     { "<C-p>", tf "find_files", desc = "Search Files" },

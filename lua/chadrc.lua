@@ -7,7 +7,6 @@ M.ui = {
     order = { "treeOffset", "buffers", "tabs", "btns" },
     modules = nil,
   },
-  lsp = { signature = true },
 }
 
 M.base46 = {

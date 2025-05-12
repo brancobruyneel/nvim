@@ -1,6 +1,7 @@
-require "branco.ui.nvchad-ui"
-require "branco.ui.base46"
-require "branco.ui.nvim-web-devicons"
-require "branco.ui.nvim-tree"
-require "branco.ui.telescope"
-require "branco.ui.markdown"
+return {
+  { import = "branco.ui.nvchad-ui" },
+  { import = "branco.ui.nvim-tree" },
+  { import = "branco.ui.telescope" },
+  { import = "branco.ui.testing" },
+  { import = "branco.ui.markdown" },
+}
