@@ -10,9 +10,10 @@ nix run 'github:brancobruyneel/nvim'
 
 ## TODO
 
-- [ ] fix auto pairs
 - [x] refactor loading plugins with `lze`
+- [ ] fix neotest
 - [ ] debugger setup
+- [ ] fix auto pairs
 - [ ] ai setup
 - [ ] different categories e.g min, dev, etc
 - [ ] devShell
@@ -21,6 +22,9 @@ nix run 'github:brancobruyneel/nvim'
 
 ### Plugins
 
+- [ ] mini.nvim
+- [ ] oil.nvim
+- [ ] diffview.nvim
 - [ ] grapple.nvim
 - [ ] avante.nvim
 - [ ] nvim-coverage
