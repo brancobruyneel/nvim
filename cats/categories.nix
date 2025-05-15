@@ -42,7 +42,14 @@
     testing = with pkgs.vimPlugins; [
       neotest
       neotest-golang
+      FixCursorHold-nvim
+    ];
+    debug = with pkgs.vimPlugins; [
+      nvim-dap
+      nvim-dap-ui
       nvim-nio
+      nvim-dap-virtual-text
+      nvim-dap-go
     ];
   };
 
@@ -53,6 +60,12 @@
     ];
     lang = {
       docker = with pkgs; [ hadolint ];
+      javascript = with pkgs; [
+        typescript-language-server
+        tailwindcss-language-server
+        biome
+        eslint_d
+      ];
       go = with pkgs; [
         go
         gopls
