@@ -1,7 +1,10 @@
 return {
   {
     "neotest",
-    cmd = "Neotest",
+    load = function(name)
+      vim.cmd.packadd(name)
+      vim.cmd.packadd "neotest-golang"
+    end,
     keys = {
       {
         "<leader>tf",
@@ -76,15 +79,11 @@ return {
     },
     after = function(_)
       require("neotest").setup {
-        level = vim.log.levels.DEBUG,
+        log_level = vim.log.levels.DEBUG,
         adapters = {
-          require "neotest-golang" {},
+          require "neotest-golang",
         },
       }
     end,
-  },
-  {
-    "neotest-golang",
-    on_plugin = "neotest",
   },
 }
