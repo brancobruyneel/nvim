@@ -6,6 +6,7 @@
   # Plugins that will be loaded at startup
   startupPlugins = {
     general = with pkgs.vimPlugins; [
+      plenary-nvim
       lze
       lzextras
 
@@ -19,6 +20,9 @@
       nvim-lspconfig
       nvim-treesitter.withAllGrammars
     ];
+    debug = with pkgs.vimPlugins; [
+      nvim-nio
+    ];
   };
 
   # Plugins that will not loaded at startup
@@ -27,7 +31,6 @@
   optionalPlugins = {
     general = with pkgs.vimPlugins; [
       blink-cmp
-      plenary-nvim
       # git
       vim-fugitive
       gitsigns-nvim
@@ -42,12 +45,10 @@
     testing = with pkgs.vimPlugins; [
       neotest
       neotest-golang
-      FixCursorHold-nvim
     ];
     debug = with pkgs.vimPlugins; [
       nvim-dap
       nvim-dap-ui
-      nvim-nio
       nvim-dap-virtual-text
       nvim-dap-go
     ];

@@ -81,7 +81,15 @@ return {
       require("neotest").setup {
         log_level = vim.log.levels.DEBUG,
         adapters = {
-          require "neotest-golang",
+          require "neotest-golang" {
+            go_test_args = { "-v", "-x", "-count=1", "-tags=integration" },
+            go_list_args = { "-tags=integration" },
+            dap_go_opts = {
+              delve = {
+                build_flags = { "-tags=integration" },
+              },
+            },
+          },
         },
       }
     end,
