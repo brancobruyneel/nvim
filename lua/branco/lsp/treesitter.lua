@@ -12,4 +12,8 @@ return {
       }
     end,
   },
+  {
+    "nvim-treesitter-context",
+    event = "DeferredUIEnter",
+  },
 }

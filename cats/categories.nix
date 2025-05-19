@@ -37,6 +37,7 @@
 
       mini-surround
 
+      nvim-treesitter-context
       render-markdown-nvim
 
       telescope-nvim
