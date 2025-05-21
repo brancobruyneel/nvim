@@ -47,6 +47,12 @@
       neotest
       neotest-golang
     ];
+    ai = with pkgs.vimPlugins; [
+      avante-nvim
+      # deps
+      dressing-nvim
+      nui-nvim
+    ];
     debug = with pkgs.vimPlugins; [
       nvim-dap
       nvim-dap-ui

@@ -13,6 +13,7 @@
         theme = true;
         tools = true;
         testing = true;
+        ai = true;
       };
       extra = {
         nixdExtras = { inherit nixpkgs; };
