@@ -14,7 +14,7 @@ nix run 'github:brancobruyneel/nvim'
 - [x] fix neotest
 - [ ] debugger setup
 - [ ] fix auto pairs
-- [ ] ai setup
+- [x] ai setup
 - [ ] different categories e.g min, dev, etc
 - [ ] devShell
 - [ ] non nix support with nixUtils
@@ -26,5 +26,5 @@ nix run 'github:brancobruyneel/nvim'
 - [ ] oil.nvim
 - [ ] diffview.nvim
 - [ ] grapple.nvim
-- [ ] avante.nvim
+- [x] avante.nvim
 - [ ] nvim-coverage
