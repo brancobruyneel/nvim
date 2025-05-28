@@ -23,6 +23,8 @@ return {
           window = { border = "single" },
         },
 
+        accept = { auto_brackets = { enabled = true } },
+
         menu = require("nvchad.blink").menu,
       },
     }
