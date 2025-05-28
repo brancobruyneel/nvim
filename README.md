@@ -12,8 +12,8 @@ nix run 'github:brancobruyneel/nvim'
 
 - [x] refactor loading plugins with `lze`
 - [x] fix neotest
-- [ ] debugger setup
-- [ ] fix auto pairs
+- [x] debugger setup
+- [x] fix auto pairs
 - [x] ai setup
 - [ ] different categories e.g min, dev, etc
 - [ ] devShell
