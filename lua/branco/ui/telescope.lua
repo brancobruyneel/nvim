@@ -33,6 +33,7 @@ return {
         selection_caret = " ",
         entry_prefix = " ",
         sorting_strategy = "ascending",
+        file_ignore_patterns = { "^vendor/" },
         layout_config = {
           horizontal = {
             prompt_position = "top",
