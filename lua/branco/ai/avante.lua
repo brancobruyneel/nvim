@@ -27,13 +27,15 @@ return {
           enable_cursor_planning_mode = true,
         },
 
-        vendors = {
+        providers = {
           itp = {
             __inherited_from = "openai",
             endpoint = "https://api.chatitp.inthepocket.net",
             api_key_name = "cmd:op read op://Employee/chatITP/credential",
             model = "claude-3-7-sonnet",
-            max_completion_tokens = 32768,
+            extra_request_body = {
+              max_tokens = 32768,
+            },
           },
         },
       }
