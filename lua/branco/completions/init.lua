@@ -5,8 +5,8 @@ return {
     on_require = "blink",
     load = function(name)
       require("lzextras").loaders.multi {
-        name,
         "blink-cmp-avante",
+        name,
       }
     end,
     after = function(_)
