@@ -49,6 +49,7 @@
     ];
     ai = with pkgs.vimPlugins; [
       avante-nvim
+      blink-cmp-avante
       # deps
       dressing-nvim
       nui-nvim
