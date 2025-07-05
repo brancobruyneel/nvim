@@ -46,19 +46,8 @@
       } categoryDefinitions packageDefinitions defaultPackageName;
 
       dependencyOverlays = [
-        (utils.standardPluginOverlay inputs)
-        (final: prev: {
-          vimPlugins = prev.vimPlugins // {
-            avante-nvim = prev.vimPlugins.avante-nvim.overrideAttrs (old: {
-              src = prev.fetchFromGitHub {
-                owner = "yetone";
-                repo = "avante.nvim";
-                rev = "master";
-                sha256 = "sha256-wpXA2+PqfgNSxKW3evT6gaLBnvNMn/cee3nSPc+n6jE=";
-              };
-            });
-          };
-        })
+        utils.standardPluginOverlay
+        inputs
       ];
     in
     flake-utils.lib.eachDefaultSystem (
