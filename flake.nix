@@ -46,8 +46,7 @@
       } categoryDefinitions packageDefinitions defaultPackageName;
 
       dependencyOverlays = [
-        utils.standardPluginOverlay
-        inputs
+        (utils.standardPluginOverlay inputs)
       ];
     in
     flake-utils.lib.eachDefaultSystem (
