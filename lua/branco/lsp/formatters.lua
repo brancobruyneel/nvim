@@ -22,6 +22,7 @@ return {
           lua = { "stylua" },
           go = { "gofumpt", "goimports" },
           nix = { "nixfmt-rfc-style" },
+          javascrip9t = { "biome" },
         },
         format_on_save = {
           lsp_fallback = true,

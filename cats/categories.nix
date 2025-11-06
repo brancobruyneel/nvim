@@ -39,7 +39,6 @@
 
       nvim-treesitter-context
       render-markdown-nvim
-      peek-nvim
 
       telescope-nvim
       telescope-fzf-native-nvim
