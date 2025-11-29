@@ -11,7 +11,6 @@
       lzextras
 
       nvchad-ui
-      nvim-tree-lua
       nvim-web-devicons
       base46
 
@@ -37,6 +36,7 @@
 
       mini-surround
 
+      nvim-tree-lua
       nvim-treesitter-context
       render-markdown-nvim
 

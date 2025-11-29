@@ -1,7 +1,6 @@
 return {
   {
-    "nvim-tree",
-    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+    "nvim-tree.lua",
     after = function()
       require("nvim-tree").setup {
         filters = {
