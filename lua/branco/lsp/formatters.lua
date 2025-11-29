@@ -22,7 +22,8 @@ return {
           lua = { "stylua" },
           go = { "gofumpt", "goimports" },
           nix = { "nixfmt-rfc-style" },
-          javascrip9t = { "biome" },
+          javascript = { "prettierd" },
+          terraform = { "terraform_fmt" },
         },
         format_on_save = {
           lsp_fallback = true,

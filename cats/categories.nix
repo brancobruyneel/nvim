@@ -72,8 +72,15 @@
       javascript = with pkgs; [
         typescript-language-server
         tailwindcss-language-server
-        biome
         eslint_d
+        prettier-d-slim
+      ];
+      terraform = with pkgs; [
+        terraform-ls
+      ];
+      yaml = with pkgs; [
+        yaml-language-server
+        yamlfmt
       ];
       go = with pkgs; [
         go
