@@ -95,7 +95,7 @@
       ];
       nix = with pkgs; [
         nixd
-        nixfmt-rfc-style
+        nixfmt
       ];
     };
   };
