@@ -19,6 +19,8 @@ M.base46 = {
     "nvimtree",
     "telescope",
     "git",
+    "neogit",
+    "diffview",
     "avante",
     "render-markdown",
   },

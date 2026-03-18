@@ -31,7 +31,8 @@
     general = with pkgs.vimPlugins; [
       blink-cmp
       # git
-      vim-fugitive
+      diffview-nvim
+      neogit
       gitsigns-nvim
 
       mini-surround
