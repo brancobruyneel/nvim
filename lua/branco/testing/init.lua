@@ -83,10 +83,7 @@ return {
           open_on_run = false,
         },
         adapters = {
-          require "neotest-golang" {
-            testify_enabled = true,
-            runner = "gotestsum",
-          },
+          require "neotest-golang" {},
         },
       }
     end,
