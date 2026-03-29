@@ -71,10 +71,9 @@
     lang = {
       docker = with pkgs; [ hadolint ];
       javascript = with pkgs; [
+        biome
         typescript-language-server
         tailwindcss-language-server
-        eslint_d
-        prettier-d-slim
       ];
       terraform = with pkgs; [
         terraform-ls
