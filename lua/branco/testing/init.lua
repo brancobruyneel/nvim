@@ -32,7 +32,7 @@ return {
         function()
           require("neotest").run.run()
         end,
-        desc = "<neotest> Run close test",
+        desc = "<neotest> Run closest test",
       },
       {
         "<leader>ts",
@@ -51,7 +51,7 @@ return {
       {
         "<leader>td",
         function()
-          require("neotest").run.run { suite = true, strategy = "dap" }
+          require("neotest").run.run { strategy = "dap" }
         end,
         desc = "Debug nearest test",
       },
@@ -83,7 +83,10 @@ return {
           open_on_run = false,
         },
         adapters = {
-          require "neotest-golang" {},
+          require "neotest-golang" {
+            runner = "gotestsum",
+            testify_enabled = true,
+          },
         },
       }
     end,
