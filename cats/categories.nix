@@ -88,6 +88,7 @@
         gofumpt
         gotools
         golangci-lint
+        gotestsum
       ];
       lua = with pkgs; [
         lua-language-server
