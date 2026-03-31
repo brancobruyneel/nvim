@@ -2,6 +2,11 @@ return {
   {
     "diffview.nvim",
     cmd = { "DiffviewOpen", "DiffviewFileHistory" },
+    keys = {
+      { "<leader>gd", "<cmd>DiffviewOpen<cr>", desc = "diff working tree" },
+      { "<leader>gh", "<cmd>DiffviewFileHistory %<cr>", desc = "file history" },
+      { "<leader>gH", "<cmd>DiffviewFileHistory<cr>", desc = "repo history" },
+    },
     on_require = "diffview",
     after = function(_)
       require("diffview").setup {

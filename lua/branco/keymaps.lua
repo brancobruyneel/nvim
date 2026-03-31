@@ -26,10 +26,6 @@ map("n", "<leader>x", function()
   require("nvchad.tabufline").close_buffer()
 end, { desc = "buffer close" })
 
--- git
-map("n", "<leader>gg", "<CMD> Neogit <CR>", { desc = "Neogit" })
-map("n", "<leader>gp", "<CMD> Neogit pull <CR>", { desc = "git pull" })
-
 -- clipboard
 map("n", "<leader>y", '"+y', { desc = "copy to system clipboard" })
 map("v", "<leader>y", '"+y', { desc = "visual copy to system clipboard" })
