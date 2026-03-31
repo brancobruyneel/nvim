@@ -80,7 +80,7 @@ return {
     after = function(_)
       local adapter = require "neotest-golang" {
         runner = "gotestsum",
-        testify_enabled = true,
+        testify_enabled = false,
       }
 
       -- Workaround: neotest-golang's return_skipped creates a context without
@@ -88,11 +88,7 @@ return {
       -- is "gotestsum". Intercept and return a skipped result instead.
       local original_results = adapter.results
       adapter.results = function(spec, result, tree)
-        if
-          spec.context
-          and not spec.context.test_output_json_filepath
-          and not spec.context.is_dap_active
-        then
+        if spec.context and not spec.context.test_output_json_filepath and not spec.context.is_dap_active then
           return {
             [spec.context.pos_id] = { status = "skipped" },
           }
