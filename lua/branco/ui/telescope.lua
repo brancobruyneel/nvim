@@ -6,6 +6,7 @@ end
 
 return {
   "telescope.nvim",
+  on_require = "telescope",
   keys = {
     { "<C-p>", tf "find_files", desc = "Search Files" },
     { "<leader>fp", tf "buffers", desc = "Search Buffers" },
