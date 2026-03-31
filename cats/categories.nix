@@ -32,6 +32,7 @@
       blink-cmp
       # git
       diffview-nvim
+      git-worktree-nvim
       neogit
       gitsigns-nvim
 
