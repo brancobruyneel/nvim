@@ -5,6 +5,11 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
     flake-utils.url = "github:numtide/flake-utils";
+
+    "plugins-auto-dark-mode-nvim" = {
+      url = "github:f-person/auto-dark-mode.nvim";
+      flake = false;
+    };
   };
 
   outputs =
@@ -13,6 +18,7 @@
       nixpkgs,
       nixCats,
       flake-utils,
+      ...
     }@inputs:
     let
       cats = import ./cats { inherit nixpkgs; };

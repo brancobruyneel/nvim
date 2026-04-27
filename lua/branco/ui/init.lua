@@ -3,4 +3,5 @@ return {
   { import = "branco.ui.nvim-tree" },
   { import = "branco.ui.telescope" },
   { import = "branco.ui.markdown" },
+  { import = "branco.ui.auto-dark-mode" },
 }

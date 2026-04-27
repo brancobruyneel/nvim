@@ -44,6 +44,8 @@
 
       telescope-nvim
       telescope-fzf-native-nvim
+
+      pkgs.neovimPlugins.auto-dark-mode-nvim
     ];
     testing = with pkgs.vimPlugins; [
       neotest
