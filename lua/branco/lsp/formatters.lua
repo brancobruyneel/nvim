@@ -17,13 +17,25 @@ return {
       },
     },
     after = function()
+      local function js_formatter(bufnr)
+        local conform = require("conform")
+        local path = vim.api.nvim_buf_get_name(bufnr)
+        if
+          conform.get_formatter_info("biome", bufnr).available
+          and vim.fs.find({ "biome.json", "biome.jsonc" }, { upward = true, path = path })[1]
+        then
+          return { "biome" }
+        end
+        return { "prettierd", "prettier", stop_after_first = true }
+      end
+
       require("conform").setup {
         formatters_by_ft = {
           lua = { "stylua" },
           go = { "gofumpt", "goimports" },
           nix = { "nixfmt-rfc-style" },
-          javascript = { "biome", "prettierd", stop_after_first = true },
-          typescript = { "biome", "prettierd", stop_after_first = true },
+          javascript = js_formatter,
+          typescript = js_formatter,
           terraform = { "terraform_fmt" },
         },
         format_on_save = {
