@@ -50,6 +50,7 @@
     testing = with pkgs.vimPlugins; [
       neotest
       neotest-golang
+      neotest-jest
     ];
     ai = with pkgs.vimPlugins; [
       avante-nvim

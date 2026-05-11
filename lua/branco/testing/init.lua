@@ -4,6 +4,7 @@ return {
     load = function(name)
       vim.cmd.packadd(name)
       vim.cmd.packadd "neotest-golang"
+      vim.cmd.packadd "neotest-jest"
     end,
     keys = {
       {
@@ -78,7 +79,7 @@ return {
       },
     },
     after = function(_)
-      local adapter = require "neotest-golang" {
+      local golang_adapter = require "neotest-golang" {
         runner = "gotestsum",
         testify_enabled = false,
       }
@@ -86,8 +87,8 @@ return {
       -- Workaround: neotest-golang's return_skipped creates a context without
       -- test_output_json_filepath, which crashes results_finalize when runner
       -- is "gotestsum". Intercept and return a skipped result instead.
-      local original_results = adapter.results
-      adapter.results = function(spec, result, tree)
+      local original_results = golang_adapter.results
+      golang_adapter.results = function(spec, result, tree)
         if spec.context and not spec.context.test_output_json_filepath and not spec.context.is_dap_active then
           return {
             [spec.context.pos_id] = { status = "skipped" },
@@ -96,11 +97,29 @@ return {
         return original_results(spec, result, tree)
       end
 
+      local jest_adapter = require "neotest-jest" {
+        jestCommand = "npx jest --",
+        jestConfigFile = function(path)
+          local root = vim.fs.root(path, { "jest.config.js", "jest.config.ts", "package.json" })
+          for _, name in ipairs { "jest.config.js", "jest.config.ts", "jest.config.mjs", "jest.config.cjs" } do
+            local candidate = root and (root .. "/" .. name)
+            if candidate and vim.uv.fs_stat(candidate) then
+              return candidate
+            end
+          end
+          return nil
+        end,
+        env = { CI = "true" },
+        cwd = function(path)
+          return vim.fs.root(path, { "package.json" }) or vim.fn.getcwd()
+        end,
+      }
+
       require("neotest").setup {
         output = {
           open_on_run = false,
         },
-        adapters = { adapter },
+        adapters = { golang_adapter, jest_adapter },
       }
     end,
   },
