@@ -19,11 +19,13 @@ o.smartindent = true
 o.tabstop = 2
 o.softtabstop = 2
 
--- Folds
+-- Folds: treesitter-driven, but nothing folded when a buffer opens
 opt.foldmethod = "expr"
 opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 opt.foldtext = ""
 opt.fillchars = { eob = " ", fold = " " }
+o.foldlevel = 99
+o.foldlevelstart = 99
 
 o.ignorecase = true
 o.smartcase = true
@@ -41,6 +43,9 @@ opt.shortmess:append "sI"
 o.signcolumn = "yes"
 o.splitbelow = true
 o.splitright = true
+
+-- default border for every floating window, honoured by blink, lsp and diagnostics
+o.winborder = "rounded"
 o.timeoutlen = 400
 o.swapfile = false
 o.undofile = true
@@ -58,5 +63,4 @@ g.loaded_python3_provider = 0
 g.loaded_perl_provider = 0
 g.loaded_ruby_provider = 0
 
-vim.cmd [[set nofen]]
-vim.cmd [[set pumheight=20]]
+o.pumheight = 20
