@@ -7,6 +7,12 @@ end
 return {
   "telescope.nvim",
   on_require = "telescope",
+  load = function(name)
+    require("lzextras").loaders.multi {
+      name,
+      "telescope-fzf-native.nvim",
+    }
+  end,
   keys = {
     { "<C-p>", tf "find_files", desc = "Search Files" },
     { "<leader>fp", tf "buffers", desc = "Search Buffers" },
@@ -47,9 +53,8 @@ return {
           n = { ["q"] = require("telescope.actions").close },
         },
       },
-
-      extensions_list = { "themes", "terms" },
-      extensions = { "fzf" },
     }
+
+    require("telescope").load_extension "fzf"
   end,
 }
