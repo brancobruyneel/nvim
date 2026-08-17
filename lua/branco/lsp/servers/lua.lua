@@ -1,7 +1,6 @@
 return {
   "lua_ls",
   lsp = {
-    filetypes = { "lua" },
     settings = {
       Lua = {
         runtime = { version = "LuaJIT" },

@@ -1,6 +1,4 @@
 return {
   "nixd",
-  lsp = {
-    filetypes = { "nix" },
-  },
+  lsp = {},
 }
