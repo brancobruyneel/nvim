@@ -1,8 +1,4 @@
-{
-  pkgs,
-  ...
-}:
-{
+{ pkgs, ... }: {
   # Plugins that will be loaded at startup
   startupPlugins = {
     general = with pkgs.vimPlugins; [
@@ -18,8 +14,8 @@
       nvim-lint
       nvim-lspconfig
       nvim-treesitter.withAllGrammars
-    ];
-    debug = with pkgs.vimPlugins; [
+
+      # shared library, required by both nvim-dap-ui and neotest
       nvim-nio
     ];
   };
@@ -56,22 +52,18 @@
       avante-nvim
       blink-cmp-avante
       # deps
-      dressing-nvim
       nui-nvim
     ];
     debug = with pkgs.vimPlugins; [
       nvim-dap
       nvim-dap-ui
       nvim-dap-go
-      telescope-dap-nvim
     ];
   };
 
   # Runtime plugin dependencies
   lspsAndRuntimeDeps = {
-    general = with pkgs; [
-      fd
-    ];
+    general = with pkgs; [ fd ];
     lang = {
       docker = with pkgs; [ hadolint ];
       javascript = with pkgs; [
@@ -79,9 +71,7 @@
         typescript-language-server
         tailwindcss-language-server
       ];
-      terraform = with pkgs; [
-        terraform-ls
-      ];
+      terraform = with pkgs; [ terraform-ls ];
       yaml = with pkgs; [
         yaml-language-server
         yamlfmt

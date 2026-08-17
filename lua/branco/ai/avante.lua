@@ -7,7 +7,6 @@ return {
         name,
         "nui.nvim",
         "telescope.nvim",
-        "dressing.nvim",
       }
     end,
     cmd = { "AvanteAsk", "AvanteToggle", "AvanteChat" },
