@@ -6,7 +6,6 @@ return {
       require("lzextras").loaders.multi {
         name,
         "nvim-dap-ui",
-        "telescope-dap.nvim",
       }
     end,
     keys = {
@@ -37,13 +36,6 @@ return {
           require("dap").continue()
         end,
         desc = "Continue",
-      },
-      {
-        "<leader>da",
-        function()
-          require("dap").continue { before = get_args }
-        end,
-        desc = "Run with Args",
       },
       {
         "<leader>dC",

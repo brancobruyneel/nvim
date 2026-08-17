@@ -37,7 +37,9 @@ return {
             gitsigns.stage_hunk { vim.fn.line ".", vim.fn.line "v" }
           end)
 
-          map("v", "<leader>hr", function() end)
+          map("v", "<leader>hr", function()
+            gitsigns.reset_hunk { vim.fn.line ".", vim.fn.line "v" }
+          end)
 
           map("n", "<leader>hS", gitsigns.stage_buffer)
           map("n", "<leader>hR", gitsigns.reset_buffer)
@@ -59,9 +61,9 @@ return {
           end)
           map("n", "<leader>hq", gitsigns.setqflist)
 
-          -- Toggles
-          map("n", "<leader>tb", gitsigns.toggle_current_line_blame)
-          map("n", "<leader>tw", gitsigns.toggle_word_diff)
+          -- Toggles, kept under <leader>h so they don't shadow neotest's <leader>t
+          map("n", "<leader>hB", gitsigns.toggle_current_line_blame)
+          map("n", "<leader>hW", gitsigns.toggle_word_diff)
 
           -- Text object
           map({ "o", "x" }, "ih", gitsigns.select_hunk)
