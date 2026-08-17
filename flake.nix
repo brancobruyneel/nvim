@@ -51,9 +51,7 @@
         inherit nixpkgs dependencyOverlays extra_pkg_config;
       } categoryDefinitions packageDefinitions defaultPackageName;
 
-      dependencyOverlays = [
-        (utils.standardPluginOverlay inputs)
-      ];
+      dependencyOverlays = [ (utils.standardPluginOverlay inputs) ];
     in
     flake-utils.lib.eachDefaultSystem (
       system:
