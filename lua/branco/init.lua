@@ -29,6 +29,7 @@ lze.load {
   { import = "branco.debug" },
   { import = "branco.ai" },
   { import = "branco.testing" },
+  { import = "branco.misc" },
 }
 
 for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
