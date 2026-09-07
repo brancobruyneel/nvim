@@ -23,7 +23,20 @@ o.softtabstop = 2
 opt.foldmethod = "expr"
 opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 opt.foldtext = ""
-opt.fillchars = { eob = " ", fold = " " }
+opt.fillchars = { eob = " ", fold = " ", diff = "╱" }
+
+-- Diffs: histogram aligns moved/reindented blocks better than the default
+-- myers, linematch pairs up changed lines within a hunk so inline:char can
+-- highlight just the changed characters instead of the whole line
+opt.diffopt = {
+  "internal",
+  "filler",
+  "closeoff",
+  "algorithm:histogram",
+  "indent-heuristic",
+  "inline:char",
+  "linematch:60",
+}
 o.foldlevel = 99
 o.foldlevelstart = 99
 
