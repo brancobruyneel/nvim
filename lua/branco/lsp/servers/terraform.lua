@@ -1,4 +1,4 @@
 return {
   "terraformls",
-  lsp = {},
+  lsp = { settings = { terraform = { path = "tofu" } } },
 }

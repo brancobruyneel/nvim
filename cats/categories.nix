@@ -63,15 +63,26 @@
 
   # Runtime plugin dependencies
   lspsAndRuntimeDeps = {
-    general = with pkgs; [ fd ];
+    general = with pkgs; [
+      fd
+      ripgrep
+    ];
     lang = {
       docker = with pkgs; [ hadolint ];
       javascript = with pkgs; [
         biome
+        prettierd
         typescript-language-server
         tailwindcss-language-server
+        # provides the eslint and json language servers
+        vscode-langservers-extracted
       ];
-      terraform = with pkgs; [ terraform-ls ];
+      terraform = with pkgs; [
+        # terraform-ls and conform both shell out to a terraform binary;
+        # terraform itself is unfree from 1.6 on
+        opentofu
+        terraform-ls
+      ];
       yaml = with pkgs; [
         yaml-language-server
         yamlfmt

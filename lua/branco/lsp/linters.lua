@@ -6,10 +6,10 @@ return {
     after = function()
       local lint = require "lint"
 
+      -- js and ts are absent on purpose: eslint runs as a language server
       lint.linters_by_ft = {
         go = { "golangcilint" },
-        javascript = { "biomejs" },
-        typescript = { "biomejs" },
+        dockerfile = { "hadolint" },
       }
 
       local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

@@ -40,7 +40,7 @@ return {
         selection_caret = " ",
         entry_prefix = " ",
         sorting_strategy = "ascending",
-        file_ignore_patterns = { "^vendor/" },
+        file_ignore_patterns = { "^vendor/", "%.git/" },
         layout_config = {
           horizontal = {
             prompt_position = "top",
@@ -52,6 +52,10 @@ return {
         mappings = {
           n = { ["q"] = require("telescope.actions").close },
         },
+      },
+      pickers = {
+        find_files = { hidden = true },
+        live_grep = { hidden = true },
       },
     }
 
