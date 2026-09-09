@@ -3,7 +3,6 @@ local x = vim.diagnostic.severity
 vim.diagnostic.config {
   underline = false,
   virtual_text = false,
-  virtual_lines = { current_line = true },
   signs = { text = { [x.ERROR] = "󰅙", [x.WARN] = "", [x.INFO] = "󰋼", [x.HINT] = "󰌵" } },
   float = {
     show_header = true,
